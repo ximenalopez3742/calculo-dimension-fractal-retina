@@ -1,0 +1,18 @@
+% Preprocesamiento de la imagen
+clear;
+close all;
+clc;
+
+Imagen_original = imread('35.jpg');
+Green =Imagen_original(:,:,2); % Extraer el canal verde
+J = adapthisteq(Green, 'ClipLimit', 0.01); % Ecualización adaptativa de histograma
+Filtro = medfilt2(J, [5 5]); % Filtro de mediana, quita ruido
+I_green = Imagen_original;
+I_green(:,:,2) = Filtro; % Sustituir canal verde con imagen sin ruido
+I_green = imadjust(I_green, [0.05 0.05 0.05; 0.9 0.9 0.9], []);
+
+
+figure;
+subplot(1,3,1); imshow(Imagen_original); title('Imagen Original');
+subplot(1,3,2); imshow(Green); title('Imagen Extracción Canal Verde');
+subplot(1,3,3); imshow(I_green); title('Imagen Mejorada');
