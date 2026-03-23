@@ -21,3 +21,4 @@ Para lograr la imagen final mejorada, el algoritmo realiza las siguientes tareas
 7.Mostrar imágenes. Es la salida visual del programa. Presenta tres vistas comparativas: la original, el canal verde crudo y la imagen final procesada. Esto permite al usuario validar que el proceso de mejora fue exitoso y que las lesiones son ahora más fáciles de identificar.
 ## Algoritmo Para el Aislamiento de la Arquitectura Vascular y Cálculo de la Dimensión Fractal
  
+Este algoritmo mide la complejidad de la arquitectura vascular de la retina. Primero, 'dibuja' un mapa binario de los vasos sanguíneos (segmentación). Luego, coloca cuadrículas de diferentes tamaños sobre ese mapa y cuenta cuántos cuadros son tocados por los vasos. Al analizar cómo cambia este número conforme los cuadros se hacen más pequeños, el programa calcula la Dimensión Fractal, un valor numérico que indica qué tan sana o congestionada está la red vascular del paciente.
