@@ -7,9 +7,14 @@ Este repositorio contiene los algoritmos desarrollados en MATLAB para el procesa
 ## 8.2 Algoritmo de Preprocesamiento de la Imagen
 
 En esta sección del proyecto, el algoritmo se encarga de limpiar y mejorar las imágenes de fondo de ojo de la retina humana con retinopatía diabética.
-El algoritmo sigue una estructura lineal como se muestra en el diagrama de flujo la Figura 1:
+El algoritmo sigue una estructura lineal como se muestra en el diagrama de flujo de la Figura 1:
 
-<img width="347" height="850" alt="Preprocesamiento de la imagen" src="https://github.com/user-attachments/assets/1ba52560-da69-4f2b-95e3-83f058c5ba16" />
+<figure align="center">
+  <img width="347" height="850" alt="Diagrama de flujo del preprocesamiento" src="https://github.com/user-attachments/assets/1ba52560-da69-4f2b-95e3-83f058c5ba16" />
+  <figcaption>
+    <b>Figura 1.</b> Diagrama de flujo del algoritmo de preprocesamiento de imágenes de retina. Se detallan las etapas secuenciales implementadas en MATLAB para la mejora de contraste y reducción de ruido.
+  </figcaption>
+</figure>
 
 ### 8.2.1 Etapas del Algoritmo de Preprocesamiento
 El preprocesamiento se diseñó para estandarizar las imágenes de la retina humana con retinopatía diabética y resaltar la morfología vascular. El flujo lógico, implementado en MATLAB, se divide en los siguientes pasos:
@@ -44,10 +49,10 @@ Este algoritmo mide la complejidad de la arquitectura vascular de la retina. Pri
 
 La cuantificación de la complejidad geométrica se realizó mediante el método de Box-Counting (Conteo de Cajas), siguiendo un proceso de análisis multiescalar.
 
-**1. Acondicionamiento y Relleno (Padding):** Para garantizar un conteo exacto, la imagen binaria se sometió a un proceso de relleno simétrico (padarray). Esto permitió que las dimensiones de la imagen fueran múltiplos exactos del número de cajas ($k$) por eje, evitando errores de truncamiento en los bordes de la cuadrícula.
+**1. Acondicionamiento y relleno (Padding):** Para garantizar un conteo exacto, la imagen binaria se sometió a un proceso de relleno simétrico (padarray). Esto permitió que las dimensiones de la imagen fueran múltiplos exactos del número de cajas ($k$) por eje, evitando errores de truncamiento en los bordes de la cuadrícula.
 
-**2. Conteo de Cajas Multiescalar:** Se definieron 20 niveles de resolución diferentes, variando el número de cajas desde $k = 5$ hasta $k = 100$. El algoritmo recorrió sistemáticamente la cuadrícula para cada escala $l = 1/k$, contabilizando el número de cajas ocupadas $N(l)$ que contenían al menos un píxel perteneciente a la vasculatura.
+**2. Conteo de cajas:** Se definieron 20 niveles de resolución diferentes, variando el número de cajas desde $k = 5$ hasta $k = 100$. El algoritmo recorrió sistemáticamente la cuadrícula para cada escala $l = 1/k$, contabilizando el número de cajas ocupadas $N(l)$ que contenían al menos un píxel perteneciente a la vasculatura.
 
-**3. Ajuste por Mínimos Cuadrados:** A partir de los datos experimentales, se realizó un análisis de regresión lineal sobre el espacio logarítmico ($-\ln(l)$ vs $\ln(N(l))$). La pendiente de la recta de mejor ajuste representa la Dimensión Fractal ($D_f$).
+**3. Ajuste por mínimos cuadrados:** A partir de los datos experimentales, se realizó un análisis de regresión lineal sobre el espacio logarítmico ($-\ln(l)$ vs $\ln(N(l))$). La pendiente de la recta de mejor ajuste representa la Dimensión Fractal ($D_f$).
 
 **4. Validación Estadística:** La fiabilidad del cálculo se determinó mediante el coeficiente de correlación de Pearson ($r$). Un valor de $r$ cercano a la unidad confirma que la arquitectura vascular posee un comportamiento fractal consistente en el rango de escalas analizado.
