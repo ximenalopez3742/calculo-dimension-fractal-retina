@@ -13,7 +13,7 @@ El algoritmo sigue una estructura lineal como se muestra en el diagrama de flujo
   <img width="347" src="https://github.com/user-attachments/assets/1ba52560-da69-4f2b-95e3-83f058c5ba16" alt="Diagrama de flujo">
   <br>
   <p>
-    <sub><b>Figura 1.</b> Diagrama de flujo del algoritmo de preprocesamiento de imágenes de retina. Se detallan las etapas secuenciales implementadas en MATLAB para la mejora de contraste y reducción de ruido.</sub>
+    <sub><b>Figura 1.</b> Diagrama de flujo del algoritmo de preprocesamiento de imágenes de retina con retinopatía diabética. Se detallan las etapas secuenciales implementadas en MATLAB para la mejora de contraste y reducción de ruido.</sub>
   </p>
 </div>
 
