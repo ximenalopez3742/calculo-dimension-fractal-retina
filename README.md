@@ -1,19 +1,24 @@
 
 # Aplicación de Métodos de Dinámica No Lineal (Dimensión Fractal) Para Clasificar Imágenes de Retinopatía Diabética
 
-Este repositorio contiene los algoritmos desarrollados en MATLAB para el procesamiento digital de imágenes de fondo de ojo y la cuantificación de la complejidad geométrica de la arquitectura vascular, utilizando el método de conteo de cajas (Box-Counting) para el cálculo de la dimensión fractal.
+Este repositorio contiene los algoritmos desarrollados en MATLAB para el procesamiento digital de imágenes de fondo de ojo de la retina humana con retinopatía diabética y la cuantificación de la complejidad geométrica de la arquitectura vascular, utilizando el método de conteo de cajas (Box-Counting) para el cálculo de la dimensión fractal ($D_f$).
 
 
-## Algoritmo de Preprocesamiento de la Imagen
+## 8.2 Algoritmo de Preprocesamiento de la Imagen
 
-En esta sección del proyecto, el algoritmo se encarga de limpiar y mejorar las imágenes de fondo de ojo (retina).
-El proceso sigue una estructura lineal como se muestra en el diagrama de flujo de la siguiente figura:
+En esta sección del proyecto, el algoritmo se encarga de limpiar y mejorar las imágenes de fondo de ojo de la retina humana con retinopatía diabética.
+El algoritmo sigue una estructura lineal como se muestra en el diagrama de flujo de la siguiente figura:
 
 <img width="347" height="850" alt="Preprocesamiento de la imagen" src="https://github.com/user-attachments/assets/1ba52560-da69-4f2b-95e3-83f058c5ba16" />
 
-Para lograr la imagen final mejorada, el algoritmo realiza las siguientes tareas:
-1. Lee la imagen de la retina humana. La imagen entra al programa como una matriz de datos en formato RGB (Rojo, Verde y Azul).
-2. Extracción del canal verde, ya que ofrece el contraste más alto para ver los vasos sanguíneos y las lesiones (como microaneurismas), que aparecen oscuras sobre el fondo más claro de la retina. El canal rojo suele estar demasiado brillante y el azul tiene mucho ruido.
+### 8.2.1 Etapas del Algoritmo de Preprocesamiento
+El preprocesamiento se diseñó para estandarizar las imágenes de la retina humana con retinopatía diabética y resaltar la morfología vascular. El flujo lógico, implementado en MATLAB, se divide en los siguientes pasos:
+
+**1. Lectura de imagen(imread):** Se ingresa la imagen original de la retina humana con retinopatía diabética en formato RGB.
+
+**2. Extracción del canal verde:** Se aisla el canal verde de la matriz RBG (Imagen_original(:,:,2)). Se seleccionó este canal debido a que presenta una menor absorción lumínica por parte de los pigmentos de la retina, ofreciendo así el mayor contraste natural entre los vasos sanguíneos y el fondo. El canal rojo suele estar demasiado brillante y el azul tiene mucho ruido.
+
+**3. **
 3. Aplicar CLAHE. Es una técnica de Ecualización Adaptativa de Histograma. A diferencia de una ecualización normal que brilla toda la foto por igual, el CLAHE divide la imagen en pequeñas secciones y ajusta el contraste en cada una. Esto permite resaltar detalles en áreas que originalmente estaban muy oscuras sin "quemar" las zonas que ya estaban claras.
 4. Filtro de mediana. Se aplica un filtro espacial de 5 x 5 píxeles para limpiar la imagen. Su objetivo es eliminar el "ruido" (puntos blancos o negros aleatorios) causado por el sensor de la cámara. Lo elegimos porque es excelente eliminando impurezas sin desenfocar los bordes de las venas y arterias, manteniendo la nitidez necesaria para el diagnóstico.
 5. Sustituir canal verde. Tomamos la imagen original y reemplazamos su canal verde viejo por el canal que ya limpiamos y mejoramos.
