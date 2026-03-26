@@ -18,12 +18,16 @@ El preprocesamiento se diseñó para estandarizar las imágenes de la retina hum
 
 **2. Extracción del canal verde:** Se aisla el canal verde de la matriz RBG (Imagen_original(:,:,2)). Se seleccionó este canal debido a que presenta una menor absorción lumínica por parte de los pigmentos de la retina, ofreciendo así el mayor contraste natural entre los vasos sanguíneos y el fondo. El canal rojo suele estar demasiado brillante y el azul tiene mucho ruido.
 
-**3. **
-3. Aplicar CLAHE. Es una técnica de Ecualización Adaptativa de Histograma. A diferencia de una ecualización normal que brilla toda la foto por igual, el CLAHE divide la imagen en pequeñas secciones y ajusta el contraste en cada una. Esto permite resaltar detalles en áreas que originalmente estaban muy oscuras sin "quemar" las zonas que ya estaban claras.
-4. Filtro de mediana. Se aplica un filtro espacial de 5 x 5 píxeles para limpiar la imagen. Su objetivo es eliminar el "ruido" (puntos blancos o negros aleatorios) causado por el sensor de la cámara. Lo elegimos porque es excelente eliminando impurezas sin desenfocar los bordes de las venas y arterias, manteniendo la nitidez necesaria para el diagnóstico.
-5. Sustituir canal verde. Tomamos la imagen original y reemplazamos su canal verde viejo por el canal que ya limpiamos y mejoramos.
-6. Ajuste de intensidad. La función imadjust estira los niveles de brillo para que la imagen ocupe todo el rango visual posible, logrando que los puntos negros sean más profundos y los detalles más brillantes.
-7.Mostrar imágenes. Es la salida visual del programa. Presenta tres vistas comparativas: la original, el canal verde crudo y la imagen final procesada. Esto permite al usuario validar que el proceso de mejora fue exitoso y que las lesiones son ahora más fáciles de identificar.
+**3. Ecualización adaptativa (CLAHE - adapthisteq):** Se aplica la técnica Ecualización adaptativa de histograma limitada por el contraste con un límite de contraste de 0.01. A diferencia de la ecualización global, resaltando detalles finos y capilares en áreas de baja iluminación sin saturar las zonas brillantes.
+
+**4. Filtrado de mediana (medfilt2):** Se emplea un núcleo de $5 \times 5$ píxeles para la reducción de ruido, es fundamental para eliminar artefactos manteniendo la integridad de los bordes de la arquitectura vascular.
+
+**5. Sustitución del canal verde:** Se sustituye el canal verde original por el componente procesado y filtrado (I_green(:,:,2) = Filtro), integrándolo nuevamente en la estructura de la imagen para su ajuste final.
+
+**6. Ajuste de intensidad (imadjust):** La función imadjust estira los niveles de brillo para que la imagen ocupe todo el rango visual posible, logrando que los puntos negros sean más profundos y los detalles más brillantes, facilitando la detección de bordes.
+
+**Mostrar imágenes (imshow):** El algoritmo genera una comparativa que permite la validación cualitativa entre la imagen original, la extracción del canal verde y la imagen final mejorada.
+
 ## Algoritmo Para el Aislamiento de la Arquitectura Vascular y Cálculo de la Dimensión Fractal
- 
+
 Este algoritmo mide la complejidad de la arquitectura vascular de la retina. Primero, 'dibuja' un mapa binario de los vasos sanguíneos (segmentación). Luego, coloca cuadrículas de diferentes tamaños sobre ese mapa y cuenta cuántos cuadros son tocados por los vasos. Al analizar cómo cambia este número conforme los cuadros se hacen más pequeños, el programa calcula la Dimensión Fractal, un valor numérico que indica qué tan sana o congestionada está la red vascular del paciente.
