@@ -36,7 +36,7 @@ El preprocesamiento se diseñó para estandarizar las imágenes de la retina hum
 
 ## Algoritmo Para el Aislamiento de la Arquitectura Vascular y Cálculo de la Dimensión Fractal
 
-Este algoritmo mide la complejidad de la arquitectura vascular de la retina. El flujo lógico y secuencial de este proceso, que abarca desde la segmentación hasta la cuantificación, se ilustra de manera íntegra en el diagrama de flujo de la Figura 2.
+Este algoritmo mide la complejidad de la arquitectura vascular de la retina a través de la dimensión fractal. El flujo de este proceso, que abarca desde la segmentación hasta la cuantificación, se ilustra en el diagrama de flujo de la Figura 2.
 
 <div align="center">
   <img width="347" src="https://github.com/user-attachments/assets/7f2a60eb-905a-4a79-9832-a9b4daca15a8" alt="Diagrama de flujo">
@@ -50,11 +50,11 @@ El procedimiento se divide en dos fases principales: primero, traza la arquitect
 
 ### 8.3.1 Aislamiento de la Arquitectura Vascular
 
-**1. Generación de máscara de control interior:** Se aplicó un suavizado gaussiano (imgaussfilt) con $\sigma = 2$ para reducir variaciones locales de intensidad. Mediante el método de Otsu (graythresh), se generó una máscara binaria del disco retiniano, la cual fue refinada mediante el relleno de huecos (imfill) y una erosión morfológica (imerode) con un elemento estructurante de disco de radio 10. Esto asegura que el análisis se limite al área útil de la retina, eliminando bordes externos ruidosos.
+**1. Generación de máscara binaria:** Se aplicó un suavizado gaussiano (imgaussfilt) con $\sigma = 2$ para reducir variaciones locales de intensidad. Mediante el método de Otsu (graythresh), se generó una máscara binaria del disco retiniano, la cual fue refinada mediante el relleno de huecos (imfill) y una erosión morfológica (imerode) con un elemento estructurante de disco de radio 10. Esto asegura que el análisis se limite al área útil de la retina, eliminando bordes externos ruidosos.
 
-**2. Segmentación híbrida de vasos:** Se implementó una operación lógica combinada entre el detector de bordes de Canny (edge) y una máscara de intensidad basada en un segundo umbral de Otsu. Esta intersección garantiza que solo se conserven estructuras que posean una discontinuidad de borde definida y un nivel de intensidad superior al fondo.
+**2. Segmentación de la arquitectura vascular:** Se implementó una operación lógica combinada entre el detector de bordes de Canny (edge) y una máscara de intensidad basada en un segundo umbral de Otsu. Esta intersección garantiza que solo se conserven estructuras que posean una discontinuidad de borde definida y un nivel de intensidad superior al fondo.
 
-**3. Post-procesado morfológico:** La arquitectura extraída se sometió a una limpieza mediante bwareaopen, eliminando objetos menores a 100 píxeles considerados ruido. Finalmente, se aplicó un cierre morfológico (imclose) con un disco de radio 1 para conectar segmentos vasculares pequeños y suavizar las ramificaciones finales.
+**3. Post-procesado morfológico:** La arquitectura vascular de la retina humana extraída se sometió a una limpieza mediante bwareaopen, eliminando objetos menores a 100 píxeles considerados ruido. Finalmente, se aplicó un cierre morfológico (imclose) con un disco de radio 1 para conectar segmentos vasculares pequeños y suavizar las ramificaciones finales.
 
 ### 8.4.1 Cálculo de la Dimensión Fractal ($D_f$)
 
@@ -62,7 +62,7 @@ La cuantificación de la complejidad geométrica se realizó mediante el método
 
 **1. Acondicionamiento y relleno (Padding):** Para garantizar un conteo exacto, la imagen binaria se sometió a un proceso de relleno simétrico (padarray). Esto permitió que las dimensiones de la imagen fueran múltiplos exactos del número de cajas ($k$) por eje, evitando errores de truncamiento en los bordes de la cuadrícula.
 
-**2. Conteo de cajas:** Se definieron 20 niveles de resolución diferentes, variando el número de cajas desde $k = 5$ hasta $k = 100$. El algoritmo recorrió sistemáticamente la cuadrícula para cada escala $l = 1/k$, contabilizando el número de cajas ocupadas $N(l)$ que contenían al menos un píxel perteneciente a la vasculatura.
+**2. Conteo de cajas:** Se definieron 20 niveles de resolución diferentes, variando el número de cajas desde $k = 5$ hasta $k = 100$. El algoritmo recorrió sistemáticamente la cuadrícula para cada escala $l = 1/k$, contabilizando el número de cajas ocupadas $N(l)$ que contenían al menos un píxel perteneciente a la arquitectura vascular de la retina humana.
 
 **3. Ajuste por mínimos cuadrados:** A partir de los datos experimentales, se realizó un análisis de regresión lineal sobre el espacio logarítmico $-\ln(l)$ vs $\ln(N(l))$. La pendiente de la recta de mejor ajuste representa la Dimensión Fractal ($D_f$).
 
