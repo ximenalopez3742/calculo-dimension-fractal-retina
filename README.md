@@ -10,10 +10,10 @@ En esta sección del proyecto, el algoritmo se encarga de limpiar y mejorar las 
 El algoritmo sigue una estructura lineal como se muestra en el diagrama de flujo de la Figura 1:
 
 <div align="center">
-  <img width="347" src="https://github.com/user-attachments/assets/1ba52560-da69-4f2b-95e3-83f058c5ba16" alt="Diagrama de flujo">
+  <img width="347" src="https://github.com/user-attachments/assets/380c5e5d-5667-455e-8bad-e746b5986e55" alt="Diagrama de flujo">
   <br>
   <p>
-    <sub><b>Figura 1.</b> Diagrama de flujo del algoritmo de preprocesamiento de imágenes de retina con retinopatía diabética. Se detallan las etapas secuenciales implementadas en MATLAB para la mejora de contraste y reducción de ruido.</sub>
+    <sub><b>Figura 1.</b> Diagrama de flujo del algoritmo de preprocesamiento de imágenes de retina con retinopatía diabética.</sub>
   </p>
 </div>
 
@@ -37,6 +37,15 @@ El preprocesamiento se diseñó para estandarizar las imágenes de la retina hum
 ## Algoritmo Para el Aislamiento de la Arquitectura Vascular y Cálculo de la Dimensión Fractal
 
 Este algoritmo mide la complejidad de la arquitectura vascular de la retina. El flujo lógico y secuencial de este proceso, que abarca desde la segmentación hasta la cuantificación, se ilustra de manera íntegra en el diagrama de flujo de la Figura 2.
+
+<div align="center">
+  <img width="347" src="https://github.com/user-attachments/assets/a9309ddb-eff3-44a5-892f-a38bb668a6f5" alt="Diagrama de flujo">
+  <br>
+  <p>
+    <sub><b>Figura 2.</b> Diagrama de flujo del algoritmo para el aislamiento de la arquitectura vascular y cálculo de la dimensión fractal ($D_f$).</sub>
+  </p>
+</div>
+
 El procedimiento se divide en dos fases principales: primero, traza la arquitectura vascular de los vasos sanguíneos de la retina con retinopatía diabética. Luego, coloca cuadrículas de diferentes tamaños sobre esa arquitectura vascular y cuenta cuántos cuadros son tocados por los vasos. Al analizar cómo cambia este número conforme los cuadros se hacen más pequeños, el algoritmo calcula la Dimensión Fractal ($D_f$), un valor numérico que indica qué tan sana o congestionada está la red vascular del paciente.
 
 ### 8.3.1 Aislamiento de la Arquitectura Vascular
