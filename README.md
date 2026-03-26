@@ -9,12 +9,13 @@ Este repositorio contiene los algoritmos desarrollados en MATLAB para el procesa
 En esta sección del proyecto, el algoritmo se encarga de limpiar y mejorar las imágenes de fondo de ojo de la retina humana con retinopatía diabética.
 El algoritmo sigue una estructura lineal como se muestra en el diagrama de flujo de la Figura 1:
 
-<figure align="center">
-  <img width="347" height="850" alt="Diagrama de flujo del preprocesamiento" src="https://github.com/user-attachments/assets/1ba52560-da69-4f2b-95e3-83f058c5ba16" />
-  <figcaption>
-    <b>Figura 1.</b> Diagrama de flujo del algoritmo de preprocesamiento de imágenes de retina. Se detallan las etapas secuenciales implementadas en MATLAB para la mejora de contraste y reducción de ruido.
-  </figcaption>
-</figure>
+<div align="center">
+  <img width="347" src="https://github.com/user-attachments/assets/1ba52560-da69-4f2b-95e3-83f058c5ba16" alt="Diagrama de flujo">
+  <br>
+  <p>
+    <sub><b>Figura 1.</b> Diagrama de flujo del algoritmo de preprocesamiento de imágenes de retina. Se detallan las etapas secuenciales implementadas en MATLAB para la mejora de contraste y reducción de ruido.</sub>
+  </p>
+</div>
 
 ### 8.2.1 Etapas del Algoritmo de Preprocesamiento
 El preprocesamiento se diseñó para estandarizar las imágenes de la retina humana con retinopatía diabética y resaltar la morfología vascular. El flujo lógico, implementado en MATLAB, se divide en los siguientes pasos:
