@@ -39,7 +39,7 @@ El preprocesamiento se diseñó para estandarizar las imágenes de la retina hum
 Este algoritmo mide la complejidad de la arquitectura vascular de la retina. El flujo lógico y secuencial de este proceso, que abarca desde la segmentación hasta la cuantificación, se ilustra de manera íntegra en el diagrama de flujo de la Figura 2.
 
 <div align="center">
-  <img width="347" src="https://github.com/user-attachments/assets/a9309ddb-eff3-44a5-892f-a38bb668a6f5" alt="Diagrama de flujo">
+  <img width="347" src="https://github.com/user-attachments/assets/7f2a60eb-905a-4a79-9832-a9b4daca15a8" alt="Diagrama de flujo">
   <br>
   <p>
     <sub><b>Figura 2.</b> Diagrama de flujo del algoritmo para el aislamiento de la arquitectura vascular y cálculo de la dimensión fractal ($D_f$).</sub>
@@ -64,6 +64,6 @@ La cuantificación de la complejidad geométrica se realizó mediante el método
 
 **2. Conteo de cajas:** Se definieron 20 niveles de resolución diferentes, variando el número de cajas desde $k = 5$ hasta $k = 100$. El algoritmo recorrió sistemáticamente la cuadrícula para cada escala $l = 1/k$, contabilizando el número de cajas ocupadas $N(l)$ que contenían al menos un píxel perteneciente a la vasculatura.
 
-**3. Ajuste por mínimos cuadrados:** A partir de los datos experimentales, se realizó un análisis de regresión lineal sobre el espacio logarítmico ($-\ln(l)$ vs $\ln(N(l))$). La pendiente de la recta de mejor ajuste representa la Dimensión Fractal ($D_f$).
+**3. Ajuste por mínimos cuadrados:** A partir de los datos experimentales, se realizó un análisis de regresión lineal sobre el espacio logarítmico $-\ln(l)$ vs $\ln(N(l))$. La pendiente de la recta de mejor ajuste representa la Dimensión Fractal ($D_f$).
 
 **4. Validación Estadística:** La fiabilidad del cálculo se determinó mediante el coeficiente de correlación de Pearson ($r$). Un valor de $r$ cercano a la unidad confirma que la arquitectura vascular posee un comportamiento fractal consistente en el rango de escalas analizado.
