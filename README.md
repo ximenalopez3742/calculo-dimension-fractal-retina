@@ -66,4 +66,4 @@ La cuantificación de la complejidad geométrica se realizó mediante el método
 
 **3. Ajuste por mínimos cuadrados:** A partir de los datos experimentales, se realizó un análisis de regresión lineal sobre el espacio logarítmico $-\ln(l)$ vs $\ln(N(l))$. La pendiente de la recta de mejor ajuste representa la Dimensión Fractal ($D_f$).
 
-**4. Validación Estadística:** La fiabilidad del cálculo se determinó mediante el coeficiente de correlación de Pearson ($r$). Un valor de $r$ cercano a la unidad confirma que la arquitectura vascular posee un comportamiento fractal consistente en el rango de escalas analizado.
+**4. Validación:** La fiabilidad del cálculo se determinó mediante el coeficiente de correlación de Pearson ($r$). Un valor de $r$ cercano a la unidad confirma que la arquitectura vascular de la retina humana posee un comportamiento fractal consistente en el rango de escalas analizado.
