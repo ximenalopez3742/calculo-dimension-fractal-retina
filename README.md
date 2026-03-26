@@ -4,7 +4,7 @@
 Este repositorio contiene los algoritmos desarrollados en MATLAB para el procesamiento digital de imágenes de fondo de ojo de la retina humana con retinopatía diabética y la cuantificación de la complejidad geométrica de la arquitectura vascular, utilizando el método de conteo de cajas (Box-Counting) para el cálculo de la Dimensión Fractal ($D_f$).
 
 
-## 8.2 Algoritmo de Preprocesamiento de la Imagen
+## Algoritmo de Preprocesamiento de la Imagen
 
 En esta sección del proyecto, el algoritmo se encarga de limpiar y mejorar las imágenes de fondo de ojo de la retina humana con retinopatía diabética.
 El algoritmo sigue una estructura lineal como se muestra en el diagrama de flujo de la Figura 1:
@@ -17,8 +17,8 @@ El algoritmo sigue una estructura lineal como se muestra en el diagrama de flujo
   </p>
 </div>
 
-### 8.2.1 Etapas del Algoritmo de Preprocesamiento
-El preprocesamiento se diseñó para estandarizar las imágenes de la retina humana con retinopatía diabética y resaltar la morfología vascular. El flujo lógico, implementado en MATLAB, se divide en los siguientes pasos:
+### 8.2.1 Preprocesamiento de la Imagen
+El preprocesamiento se diseñó para estandarizar las imágenes de la retina humana con retinopatía diabética y resaltar la morfología vascular. El flujo lógico, implementado en MATLAB, según la Figura 1 se divide en los siguientes pasos:
 
 **1. Lectura de imagen(imread):** Se ingresa la imagen original de la retina humana con retinopatía diabética en formato RGB.
 
@@ -36,7 +36,8 @@ El preprocesamiento se diseñó para estandarizar las imágenes de la retina hum
 
 ## Algoritmo Para el Aislamiento de la Arquitectura Vascular y Cálculo de la Dimensión Fractal
 
-Este algoritmo mide la complejidad de la arquitectura vascular de la retina. Primero, traza un mapa binario de los vasos sanguíneos (segmentación). Luego, coloca cuadrículas de diferentes tamaños sobre ese mapa y cuenta cuántos cuadros son tocados por los vasos. Al analizar cómo cambia este número conforme los cuadros se hacen más pequeños, el algoritmo calcula la Dimensión Fractal ($D_f$), un valor numérico que indica qué tan sana o congestionada está la red vascular del paciente. Se divide en dos etapas:
+Este algoritmo mide la complejidad de la arquitectura vascular de la retina. El flujo lógico y secuencial de este proceso, que abarca desde la segmentación hasta la cuantificación, se ilustra de manera íntegra en el diagrama de flujo de la Figura 2.
+El procedimiento se divide en dos fases principales: primero, traza la arquitectura vascular de los vasos sanguíneos de la retina con retinopatía diabética. Luego, coloca cuadrículas de diferentes tamaños sobre esa arquitectura vascular y cuenta cuántos cuadros son tocados por los vasos. Al analizar cómo cambia este número conforme los cuadros se hacen más pequeños, el algoritmo calcula la Dimensión Fractal ($D_f$), un valor numérico que indica qué tan sana o congestionada está la red vascular del paciente.
 
 ### 8.3.1 Aislamiento de la Arquitectura Vascular
 
