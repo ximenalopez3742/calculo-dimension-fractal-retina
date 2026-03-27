@@ -1,12 +1,12 @@
 
 # Aplicación de Métodos de Dinámica No Lineal (Dimensión Fractal) Para Clasificar Imágenes de Retinopatía Diabética
 
-Este repositorio contiene los algoritmos desarrollados en MATLAB para el procesamiento digital de imágenes de fondo de ojo de la retina humana con retinopatía diabética y la cuantificación de la complejidad geométrica de la arquitectura vascular, utilizando el método de conteo de cajas (Box-Counting) para el cálculo de la Dimensión Fractal ($D_f$).
+Este repositorio contiene los algoritmos desarrollados en MATLAB para el procesamiento digital de imágenes de fondo de ojo de la retina humana con retinopatía diabética (ver archivo Preprocesamiento_Imagen.m) y la cuantificación de la complejidad geométrica de la arquitectura vascular, utilizando el método de conteo de cajas (Box-Counting) para el cálculo de la Dimensión Fractal ($D_f$) (ver archivo Df_BoxCounting_Retina.m).
 
 
 ## Algoritmo de Preprocesamiento de la Imagen
 
-En esta sección del proyecto, el algoritmo se encarga de limpiar y mejorar las imágenes de fondo de ojo de la retina humana con retinopatía diabética.
+En esta sección del proyecto, el algoritmo (ver archivo Preprocesamiento_Imagen.m) se encarga de limpiar y mejorar las imágenes de fondo de ojo de la retina humana con retinopatía diabética.
 El algoritmo sigue una estructura lineal como se muestra en el diagrama de flujo de la Figura 1:
 
 <div align="center">
@@ -36,7 +36,7 @@ El preprocesamiento se diseñó para estandarizar las imágenes de la retina hum
 
 ## Algoritmo Para el Aislamiento de la Arquitectura Vascular y Cálculo de la Dimensión Fractal
 
-Este algoritmo mide la complejidad de la arquitectura vascular de la retina a través de la dimensión fractal. El flujo de este proceso, que abarca desde la segmentación hasta la cuantificación, se ilustra en el diagrama de flujo de la Figura 2.
+Este algoritmo (ver archivo Df_BoxCounting_Retina.m) mide la complejidad de la arquitectura vascular de la retina a través de la dimensión fractal. El flujo de este proceso, que abarca desde la segmentación hasta la cuantificación, se ilustra en el diagrama de flujo de la Figura 2.
 
 <div align="center">
   <img width="347" src="https://github.com/user-attachments/assets/7f2a60eb-905a-4a79-9832-a9b4daca15a8" alt="Diagrama de flujo">
